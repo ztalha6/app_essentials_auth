@@ -1,7 +1,9 @@
 name: app_essentials_auth
 description: A new Flutter package project.
+repository: https://github.com/ztalha6/app_essentials_auth
+issue_tracker: https://github.com/ztalha6/app_essentials_auth/issues
 version: 1.0.0
-homepage:
+homepage: null
 
 environment:
   sdk: ">=3.0.2 <4.0.0"
