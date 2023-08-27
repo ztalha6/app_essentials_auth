@@ -1,14 +1,13 @@
 import 'package:app_essentials/config/app_configuration.dart';
 import 'package:app_essentials/env/env_setup.dart';
 import 'package:app_essentials/services/validator_service.dart';
+import 'package:app_essentials/utils/image_util.dart';
 import 'package:app_essentials/utils/utils.dart';
 import 'package:app_essentials_auth/app/data/model/sign_up/sign_in_request_model.dart';
 import 'package:app_essentials_auth/app/data/repositories/auth_repository.dart';
 import 'package:app_essentials_auth/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:image_cropper/image_cropper.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 class SignUpController extends GetxController {
@@ -109,33 +108,6 @@ class SignUpController extends GetxController {
   }
 
   Future<void> onChangePhotoTapped({bool camera = false}) async {
-    final ImagePicker picker = ImagePicker();
-    XFile? image = await picker.pickImage(
-      source: camera ? ImageSource.camera : ImageSource.gallery,
-    );
-    if (image != null) {
-      final CroppedFile? croppedFile = await ImageCropper().cropImage(
-        sourcePath: image.path,
-        aspectRatioPresets: [
-          CropAspectRatioPreset.square,
-          CropAspectRatioPreset.ratio3x2,
-          CropAspectRatioPreset.original,
-          CropAspectRatioPreset.ratio4x3,
-          CropAspectRatioPreset.ratio16x9
-        ],
-        // androidUiSettings: AndroidUiSettings(
-        //     toolbarColor: AppTheme.orange,
-        //     toolbarWidgetColor: Colors.white,
-        //     initAspectRatio: CropAspectRatioPreset.original,
-        //     lockAspectRatio: false),
-        // iosUiSettings: const IOSUiSettings(
-        //   minimumAspectRatio: 1.0,
-        // ),
-      );
-      if (croppedFile != null) {
-        image = XFile(croppedFile.path);
-      }
-      this.image.value = MemoryImage(await image.readAsBytes());
-    }
+    image.value = await ImageUtil.getImageFromPhone(camera: camera);
   }
 }
