@@ -2,7 +2,7 @@ name: app_essentials_auth
 description: Flutter App Essentials Auth is a comprehensive package that aims to accelerate app development by providing essential Authentication features.
 repository: https://github.com/ztalha6/app_essentials_auth
 issue_tracker: https://github.com/ztalha6/app_essentials_auth/issues
-version: 1.0.0
+version: 1.0.1
 homepage: null
 
 environment:
