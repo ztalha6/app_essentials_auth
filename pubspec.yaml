@@ -12,15 +12,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  app_essentials: ^1.0.0
+  app_essentials: ^1.0.4
   dio: ^5.2.1+1
   dio_cache_interceptor: ^3.4.2
   get: ^4.6.5
   package_info_plus: ^4.0.2
-  sizer: ^2.0.15
-  image_cropper: ^5.0.0
-  image_picker: ^0.8.9
-  intl_phone_number_input: ^0.7.3+1
   google_sign_in: ^6.1.4
   flutter_facebook_auth: ^6.0.0
   sign_in_with_apple: ^5.0.0
